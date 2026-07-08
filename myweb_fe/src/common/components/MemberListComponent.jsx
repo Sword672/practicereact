@@ -8,7 +8,8 @@ import { useNavigate } from "react-router-dom";
 function MemberListComponent() {
     
     //실행할 구문
-    navigate
+
+    const navigate = useNavigate();
 
 
     const [ dataList, setDataList] = useState([]);
@@ -29,20 +30,22 @@ function MemberListComponent() {
                 const trArr = items.map((item, index) => {
                     return (
                         <tr key= {index}
-                            onClick={() => {Navigate(`/member/detail/${item.userId}`)}}>
+                            onClick={() => {navigate(`/member/detail/${item.userId}`)}}
+                            style={{cursor: 'pointer'}}
+                            >
                             <td>{item.userId}</td>
                             <td>{item.userName}</td>
-                            <td>{item.userId}</td>
-                            <td>{item.userId}</td>
-                            <td>{item.userId}</td>
-                            <td>{item.userId}</td>
+                            <td>{item.email}</td>
+                            <td>{item.gender}</td>
+                            <td>{item.age}</td>
+                            <td>{item.enrollDate}</td>
+                            <td>{item.status}</td>
                         </tr>
                     )
                 })
 
                 setDataList(trArr);
 
-                console.log(response.data);
 
             } catch(error) {
 
@@ -74,7 +77,9 @@ function MemberListComponent() {
                         <th>탈퇴여부</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    {dataList}
+                </tbody>
             </table>
         </div>
     )

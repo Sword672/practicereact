@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +16,6 @@ import com.kh.myweb.member.model.vo.Member;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/myweb")
 public class MemberController {
 
     @Autowired
@@ -35,6 +35,14 @@ public class MemberController {
 
         return ResponseEntity.status(HttpStatus.OK).body(list);
         
+    }
+
+    @GetMapping("/member/{userId}")
+    public ResponseEntity<Member> selectMember(@PathVariable String userId) {
+
+        Member m = memberService.selectMember(userId);
+
+        return ResponseEntity.status(HttpStatus.OK).body(m);
     }
 
 }

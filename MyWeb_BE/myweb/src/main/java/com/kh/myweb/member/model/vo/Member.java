@@ -17,7 +17,7 @@ import lombok.ToString;
 public class Member {
     private String userId;  // USER_ID	VARCHAR2(30 BYTE)
     private String userPwd; // USER_PWD	VARCHAR2(100 BYTE)
-    private String userNamte;   // USER_NAME	VARCHAR2(15 BYTE)
+    private String userName;   // USER_NAME	VARCHAR2(15 BYTE)
     private String email;   // EMAIL	VARCHAR2(100 BYTE)
     private String gender;  // GENDER	VARCHAR2(1 BYTE)
     private int age;    // AGE	NUMBER

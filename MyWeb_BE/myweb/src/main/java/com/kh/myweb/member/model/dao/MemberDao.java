@@ -14,4 +14,8 @@ public class MemberDao {
         return (ArrayList)sqlSession.selectList("memberMapper.selectMemberList");
     }
 
+    public Member selectMember(SqlSessionTemplate sqlSession, String userId) {
+        return sqlSession.selectOne("memberMapper.selectMember", userId);
+    }
+
 }
