@@ -12,6 +12,7 @@
     <result column="ENROLL_DATE" property="enrollDate"/>
     <result column="STATUS" property="status"/>
   </resultMap>
+  //sdfsdfsdfsdsdsdf
 
 
   <select id="selectMemberList" resultMap="memberResultSet">
