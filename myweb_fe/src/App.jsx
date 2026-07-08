@@ -8,6 +8,8 @@ import Header from './common/components/Header'
 import Footer from './common/components/Footer'
 import { Routes, Route } from 'react-router-dom'
 import Index from './Index'
+import MemberListComponent from './common/components/MemberListComponent'
+import MemberDetailComponent from './common/components/MemberDetailComponent'
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Index/>}/>
+          <Route path="/member/list" element={<MemberListComponent/>} />
+          <Route path="/member/detail/:userId" element={<MemberDetailComponent/>} />
         </Routes>
 
       </div>

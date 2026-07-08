@@ -4,17 +4,17 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 
   <configuration>
-    <settings/>
-        <setting name="jdbcTypeForNull" value="NULL"/>
+    <settings>
+        <setting name="jdbcTypeForNull" value="NULL" />
     </settings>
 
-    <typeAliase>
+    <typeAliases>
         <package name="com.kh.myweb" />
         <!--
           com.kh.myweb 패키지 안에 있는 모든 클래스들을 스캔하겠다.
           com.kh.myweb 패키지 내의 모든 클래스들에 대해 @Alias 라는 어노테이션이 붙은 놈들에 한해
           @Alias("별칭")으로 자동으로 등록해주겠다. (설정 간소화)
         -->
-    </typeAliase>
+    </typeAliases>
 
   </configuration>

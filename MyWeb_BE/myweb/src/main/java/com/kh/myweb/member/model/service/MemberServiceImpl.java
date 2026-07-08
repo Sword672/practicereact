@@ -2,6 +2,7 @@ package com.kh.myweb.member.model.service;
 
 import java.util.ArrayList;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,9 @@ public class MemberServiceImpl implements MemberService {
 
     @Autowired
     private MemberDao memberDao;
+
+    @Autowired
+    private SqlSessionTemplate sqlSession;
 
     @Override
     public int deleteMember(Member m) {
@@ -28,8 +32,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public ArrayList<Member> selectMemberList() {
-        // TODO Auto-generated method stub
-        return null;
+        return memberDao.selectMemberList(sqlSession);
     }
 
     @Override

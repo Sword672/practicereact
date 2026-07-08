@@ -2,6 +2,21 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <resultMap id="memberResultSet" type="member">
+    <id column="USER_ID" property="userId"/>
+    <result column="USER_NAME" property="userName"/>
+    <result column="EMAIL" property="email"/>
+    <result column="GENDER" property="gender"/>
+    <result column="AGE" property="age"/>
+    <result column="ENROLL_DATE" property="enrollDate"/>
+    <result column="STATUS" property="status"/>
+  </resultMap>
 <mapper namespace="memberMapper">
+  <select id="selectMemberList" resultMap="memberResultSet">
+    SELECT USER_ID, USER_NAME, EMAIL, GENDER, AGE, ENROLL_DATE, STATUS
+    FROM MEMBER
+    WHERE USER_ID != 'admin'
+    ORDER BY USER_ID ASC
+  </select>
 
 </mapper>
