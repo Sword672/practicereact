@@ -21,7 +21,7 @@
     ORDER BY USER_ID ASC
   </select>
 
-  <select id="selectMember" parameterType="string">
+  <select id="selectMember" parameterType="string" resultMap="memberResultSet">
   </select>
 
 </mapper>
