@@ -10,6 +10,8 @@ import { Routes, Route } from 'react-router-dom'
 import Index from './Index'
 import MemberListComponent from './common/components/MemberListComponent'
 import MemberDetailComponent from './common/components/MemberDetailComponent'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -27,6 +29,7 @@ function App() {
 
       </div>
 
+        <ToastContainer />
       <Footer/>
     </div>
   )
