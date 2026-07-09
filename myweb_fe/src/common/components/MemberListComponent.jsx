@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
-
+import MemberItemComponent from './MemberItemComponent';
 
 
 //회원 목록 조회 화면을 나타내는 컴포넌트: 
@@ -9,7 +8,6 @@ function MemberListComponent() {
     
     //실행할 구문
 
-    const navigate = useNavigate();
 
 
     const [ dataList, setDataList] = useState([]);
@@ -27,21 +25,8 @@ function MemberListComponent() {
 
                 const items = response.data;
 
-                const trArr = items.map((item, index) => {
-                    return (
-                        <tr key= {index}
-                            onClick={() => {navigate(`/member/detail/${item.userId}`)}}
-                            style={{cursor: 'pointer'}}
-                            >
-                            <td>{item.userId}</td>
-                            <td>{item.userName}</td>
-                            <td>{item.email}</td>
-                            <td>{item.gender}</td>
-                            <td>{item.age}</td>
-                            <td>{item.enrollDate}</td>
-                            <td>{item.status}</td>
-                        </tr>
-                    )
+                const trArr = items.map((item) => {
+                    return (<MemberItemComponent key={item.userId} item={item}/>)
                 })
 
                 setDataList(trArr);

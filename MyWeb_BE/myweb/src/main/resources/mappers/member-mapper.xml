@@ -11,6 +11,8 @@
     <result column="AGE" property="age"/>
     <result column="ENROLL_DATE" property="enrollDate"/>
     <result column="STATUS" property="status"/>
+    <result column="PHONE" property="phone"/>
+    <result column="ADDRESS" property="address" />
   </resultMap>
 
 
@@ -22,6 +24,23 @@
   </select>
 
   <select id="selectMember" parameterType="string" resultMap="memberResultSet">
+    SELECT USER_ID, USER_NAME, EMAIL, GENDER, AGE, ENROLL_DATE, STATUS, PHONE, ADDRESS
+    FROM MEMBER
+    WHERE USER_ID = #{userId}
   </select>
+
+  <update id="updateMember" parameterType="member">
+    UPDATE MEMBER
+    SET USER_ID = #{userId},
+        USER_NAME = #{userName}, 
+        EMAIL = #{email}, 
+        GENDER = #{gender}, 
+        AGE = #{age}, 
+        ENROLL_DATE = #{enrollDate}, 
+        STATUS = #{status}, 
+        PHONE = #{phone}, 
+        ADDRESS  = #{address}
+    WHERE USER_ID = #{userId}
+  </update>
 
 </mapper>

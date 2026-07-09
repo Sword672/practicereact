@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kh.myweb.member.model.service.MemberService;
 import com.kh.myweb.member.model.vo.Member;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @CrossOrigin
 @RestController
@@ -23,8 +26,6 @@ public class MemberController {
 
     @GetMapping("/members")
     public ResponseEntity<ArrayList<Member>> selectMemberList() {
-
-        System.out.println("들어왔음.");
 
 
         ArrayList<Member> list = memberService.selectMemberList();
@@ -37,12 +38,20 @@ public class MemberController {
         
     }
 
-    @GetMapping("/member/{userId}")
+    @GetMapping("/members/{userId}")
     public ResponseEntity<Member> selectMember(@PathVariable String userId) {
 
         Member m = memberService.selectMember(userId);
 
         return ResponseEntity.status(HttpStatus.OK).body(m);
+    }
+
+    @PutMapping("/members/{userId}")
+    public int updateMember(@PathVariable String userId, @RequestBody Member member) {
+        
+        int result = memberService.updateMember(member);
+
+        return result;
     }
 
 }
